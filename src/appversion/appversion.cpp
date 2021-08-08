@@ -7,6 +7,11 @@ std::string AppInfo::Version::str() {
     out << "v" << major << "." << minor << "." << patch;
     return out.str();
 }
+
+QString AppInfo::qName() {
+    return QString::fromStdString(name());
+}
+
 QString AppInfo::Version::qStr() {
     return QString::fromStdString(Version::str());
 }

@@ -1,8 +1,7 @@
-#include "mainwindow.h"
+#include "common.h"
 
-#include <QApplication>
-#include <QLocale>
-#include <QTranslator>
+#include "mainwindow.h"
+#include "appversion.h"
 
 int main(int argc, char *argv[])
 {
@@ -18,6 +17,7 @@ int main(int argc, char *argv[])
         }
     }
     MainWindow w;
+    w.setWindowTitle(AppInfo::qName() + " | " + AppInfo::Version::qStr());
     w.show();
     return a.exec();
 }
