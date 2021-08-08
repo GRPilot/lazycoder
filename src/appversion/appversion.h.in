@@ -1,0 +1,17 @@
+#ifndef APPVERSION_H
+#define APPVERSION_H
+
+struct AppInfo {
+
+    struct Version {
+        static const unsigned short major{ ${APP_VER_MAJOR} };
+        static const unsigned short minor{ ${APP_VER_MINOR} };
+        static const unsigned short patch{ ${APP_VER_PATCH} };
+
+        static std::string str();
+        static QString qStr();
+    };
+
+};
+
+#endif // APPVERSION_H
