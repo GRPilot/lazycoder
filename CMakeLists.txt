@@ -4,7 +4,7 @@ set(APP_VER_MAJOR 0)
 set(APP_VER_MINOR 2)
 set(APP_VER_PATCH 0)
 
-project(lazycoder VERSION ${APP_VER_MINOR}.${APP_VER_MAJOR}.${APP_VER_PATCH} LANGUAGES CXX)
+project(lazycoder VERSION ${APP_VER_MAJOR}.${APP_VER_MINOR}.${APP_VER_PATCH} LANGUAGES CXX)
 set(appver_dir ${PROJECT_SOURCE_DIR}/src/appversion)
 configure_file(
     ${appver_dir}/appversion.h.in
