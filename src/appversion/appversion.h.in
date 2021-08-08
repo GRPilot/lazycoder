@@ -1,0 +1,20 @@
+#ifndef APPVERSION_H
+#define APPVERSION_H
+
+struct AppInfo {
+
+    inline static std::string name() { return "${PROJECT_NAME}"; }
+    static QString qName();
+
+    struct Version {
+        static const unsigned short major{ ${APP_VER_MAJOR} };
+        static const unsigned short minor{ ${APP_VER_MINOR} };
+        static const unsigned short patch{ ${APP_VER_PATCH} };
+
+        static std::string str();
+        static QString qStr();
+    };
+
+};
+
+#endif // APPVERSION_H

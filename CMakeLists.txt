@@ -1,6 +1,14 @@
 cmake_minimum_required(VERSION 3.5)
 
-project(lazycoder VERSION 0.1 LANGUAGES CXX)
+set(APP_VER_MAJOR 0)
+set(APP_VER_MINOR 2)
+set(APP_VER_PATCH 0)
+
+project(lazycoder VERSION ${APP_VER_MAJOR}.${APP_VER_MINOR}.${APP_VER_PATCH} LANGUAGES CXX)
+set(appver_dir ${PROJECT_SOURCE_DIR}/src/appversion)
+configure_file(
+    ${appver_dir}/appversion.h.in
+    ${appver_dir}/appversion.h)
 
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
@@ -19,6 +27,7 @@ file(GLOB TS_FILES ${PROJECT_SOURCE_DIR}/lang/*.ts)
 include_directories(
     ${PROJECT_SOURCE_DIR}/src
     ${PROJECT_SOURCE_DIR}/src/mainwindow
+    ${PROJECT_SOURCE_DIR}/src/appversion
 )
 
 file(GLOB_RECURSE PROJECT_SOURCES
