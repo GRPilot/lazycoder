@@ -19,6 +19,7 @@
 *.*#
 core
 build
+bin
 !core/
 tags
 .DS_Store
