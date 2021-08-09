@@ -1,0 +1,48 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        //====================== Configure tasks ======================//
+        {
+            "label": "[cmake] Configure debug",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}",
+                "Debug"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_win.bat",
+                "options": {
+                    "cwd": "${workspaceFolder}/build"
+                }
+            },
+            "linux": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_linux.sh",
+                "options": {
+                    "cwd": "${workspaceFolder}/build"
+                }
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "[cmake] Configure release",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}",
+                "Release"
+            ],
+            "problemMatcher": [],
+            "windows": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_win.bat",
+                "options": {
+                    "cwd": "${workspaceFolder}/build"
+                }
+            },
+            "linux": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_linux.sh",
+                "options": {
+                    "cwd": "${workspaceFolder}/build"
+                }
+            },
+        }
+    ]
+}
