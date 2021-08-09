@@ -61,3 +61,5 @@ set_target_properties(lazycoder PROPERTIES
 if(QT_VERSION_MAJOR EQUAL 6)
     qt_finalize_executable(lazycoder)
 endif()
+
+install(TARGETS lazycoder DESTINATION ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
