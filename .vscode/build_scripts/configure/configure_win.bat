@@ -26,6 +26,7 @@ cmake -G "MinGW Makefiles" ^
     -DQt6Widgets_DIR:PATH=%qt_mingw%/lib/cmake/Qt6Widgets ^
     -DQt6LinguistTools_DIR:PATH=%qt_mingw%/lib/cmake/Qt6LinguistTools ^
     -DQT_QMAKE_EXECUTABLE:STRING=%qt_mingw%/bin/qmake.exe ^
+    -DCMAKE_OBJDUMP=%qt_mingw%/bin/objdump.exe ^
     -DCMAKE_EXPORT_COMPILE_COMMANDS=ON ^
     %project_root%
 
