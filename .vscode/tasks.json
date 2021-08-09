@@ -1,0 +1,156 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        //====================== Configure tasks ======================//
+        {
+            "label": "[cmake] Configure debug",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}",
+                "Debug"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_win.bat",
+                "options": {
+                    "cwd": "${workspaceFolder}/build"
+                }
+            },
+            "linux": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_linux.sh",
+                "options": {
+                    "cwd": "${workspaceFolder}/build"
+                }
+            },
+            "problemMatcher": [],
+        },
+        {
+            "label": "[cmake] Configure release",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}",
+                "Release"
+            ],
+            "problemMatcher": [],
+            "windows": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_win.bat",
+                "options": {
+                    "cwd": "${workspaceFolder}/build"
+                }
+            },
+            "linux": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_linux.sh",
+                "options": {
+                    "cwd": "${workspaceFolder}/build"
+                }
+            },
+        },
+
+        //====================== Build tasks ======================//
+        {
+            "label": "[cmake] Build debug",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "."
+            ],
+            "windows": {
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Windows/Debug"
+                }
+            },
+            "linux": {
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Linux/Debug"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "[cmake] Build release",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "."
+            ],
+            "windows": {
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Windows/Release"
+                }
+            },
+            "linux": {
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Linux/Release"
+                }
+            },
+            "problemMatcher": []
+        },
+
+        //====================== Install tasks ======================//
+        {
+            "label": "[cmake] Install debug",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}",
+                "Debug"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_win.bat",
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Windows/Debug"
+                }
+            },
+            "linux": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_linux.sh",
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Linux/Debug"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "[cmake] Install release",
+            "type": "shell",
+            "args": [
+                "${workspaceFolder}",
+                "Release"
+            ],
+            "windows": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_win.bat",
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Windows/Release"
+                }
+            },
+            "linux": {
+                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_linux.sh",
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Linux/Release"
+                }
+            },
+            "problemMatcher": []
+        },
+
+        //====================== Configure and build tasks ======================//
+        {
+            "label": "[cmake] Configure and build debug",
+            "dependsOn": [
+                "[cmake] Configure debug",
+                "[cmake] Build debug",
+                "[cmake] Install debug"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        },
+        {
+            "label": "[cmake] Configure and build release",
+            "dependsOn": [
+                "[cmake] Configure release",
+                "[cmake] Build release",
+                "[cmake] Install release"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        }
+    ]
+}

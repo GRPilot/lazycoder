@@ -19,6 +19,7 @@
 *.*#
 core
 build
+bin
 !core/
 tags
 .DS_Store
@@ -35,6 +36,9 @@ Thumbs.db
 *.rc
 /.qmake.cache
 /.qmake.stash
+.vscode/db
+*.2.DB
+**/BRO
 
 # qtcreator generated files
 *.pro.user*
