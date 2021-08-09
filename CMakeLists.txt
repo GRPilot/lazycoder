@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.5)
 
 set(APP_VER_MAJOR 0)
-set(APP_VER_MINOR 2)
+set(APP_VER_MINOR 3)
 set(APP_VER_PATCH 0)
 
 project(lazycoder VERSION ${APP_VER_MAJOR}.${APP_VER_MINOR}.${APP_VER_PATCH} LANGUAGES CXX)
