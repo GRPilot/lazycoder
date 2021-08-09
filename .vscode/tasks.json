@@ -127,6 +127,28 @@
                 }
             },
             "problemMatcher": []
+        },
+
+        //====================== Configure and build tasks ======================//
+        {
+            "label": "[cmake] Configure and build debug",
+            "dependsOn": [
+                "[cmake] Configure debug",
+                "[cmake] Build debug",
+                "[cmake] Install debug"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
+        },
+        {
+            "label": "[cmake] Configure and build release",
+            "dependsOn": [
+                "[cmake] Configure release",
+                "[cmake] Build release",
+                "[cmake] Install release"
+            ],
+            "dependsOrder": "sequence",
+            "problemMatcher": []
         }
     ]
 }
