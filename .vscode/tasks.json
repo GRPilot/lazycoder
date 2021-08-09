@@ -43,6 +43,48 @@
                     "cwd": "${workspaceFolder}/build"
                 }
             },
+        },
+
+        //====================== Build tasks ======================//
+        {
+            "label": "[cmake] Build debug",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "."
+            ],
+            "windows": {
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Windows/Debug"
+                }
+            },
+            "linux": {
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Linux/Debug"
+                }
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "[cmake] Build release",
+            "type": "shell",
+            "command": "cmake",
+            "args": [
+                "--build",
+                "."
+            ],
+            "windows": {
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Windows/Release"
+                }
+            },
+            "linux": {
+                "options": {
+                    "cwd": "${workspaceFolder}/build/Linux/Release"
+                }
+            },
+            "problemMatcher": []
         }
     ]
 }
