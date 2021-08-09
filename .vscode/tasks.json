@@ -92,7 +92,8 @@
             "label": "[cmake] Install debug",
             "type": "shell",
             "args": [
-                "${workspaceFolder}/bin/Debug"
+                "${workspaceFolder}",
+                "Debug"
             ],
             "windows": {
                 "command": "${workspaceFolder}/.vscode/build_scripts/install/install_win.bat",
@@ -112,7 +113,8 @@
             "label": "[cmake] Install release",
             "type": "shell",
             "args": [
-                "${workspaceFolder}/bin/Release"
+                "${workspaceFolder}",
+                "Release"
             ],
             "windows": {
                 "command": "${workspaceFolder}/.vscode/build_scripts/install/install_win.bat",

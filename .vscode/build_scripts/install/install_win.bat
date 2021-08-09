@@ -1,9 +1,13 @@
 @echo off
 
+set project_root=%1
+call %project_root%/.vscode/pathes.bat
+
 echo Start installing
 cmake --install .
-set install_path=%1
-set PATH=G:\Programs\Qt\6.1.2\mingw81_64\bin;G:/Programs/Qt/Tools/mingw810_64\bin;%PATH%
+set build_type=%2
+set install_path=%project_root%/%BIN_DIR%/%build_type%
+set PATH=%QT_MINGW%\bin;%QT_TOOLS_MINGW%/bin;%PATH%
 cd %install_path%
 echo Loading dependencies
 windeployqt.exe .
