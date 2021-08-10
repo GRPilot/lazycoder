@@ -1,0 +1,12 @@
+@echo off
+
+@REM The Qt path.
+set QT_PATH_CUSTOM=C:/Qt
+
+@REM In the QT_PATH you can find the folder like 6.1.0. It have to contain mingw81_64.
+set QT_VERSION_CUSTOM=6.1.2
+
+@REM The mingw pathes.
+set QT_MINGW_CUSTOM=C:/Qt/6.1.2/mingw81_64
+set QT_TOOLS_CUSTOM=C:/Qt/Tools
+set QT_TOOLS_MINGW_CUSTOM=C:/Qt/Tools/mingw810_64

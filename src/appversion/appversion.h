@@ -9,7 +9,7 @@ struct AppInfo {
     struct Version {
         static const unsigned short major{ 0 };
         static const unsigned short minor{ 4 };
-        static const unsigned short patch{ 0 };
+        static const unsigned short patch{ 1 };
 
         static std::string str();
         static QString qStr();

@@ -9,14 +9,14 @@
                 "DEBUG"
             ],
             "windowsSdkVersion": "10.0.19041.0",
-            "compilerPath": "G:/Programs/Qt/Tools/mingw810_64/bin/g++.exe",
+            "compilerPath": "C:/Qt/Tools/mingw810_64/bin/g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-clang-x64",
             "compileCommands": "${workspaceFolder}/build/Windows/Debug/compile_commands.json",
             "browse": {
                 "path": [
-                    "G:/Programs/Qt/6.1.2/mingw81_64/lib"
+                    "C:/Qt/6.1.2/mingw81_64/lib"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": "${workspaceFolder}/.vscode/db/browse.vs.db"
@@ -32,14 +32,14 @@
                 "NDEBUG"
             ],
             "windowsSdkVersion": "10.0.19041.0",
-            "compilerPath": "G:/Programs/Qt/Tools/mingw810_64/bin/g++.exe",
+            "compilerPath": "C:/Qt/Tools/mingw810_64/bin/g++.exe",
             "cStandard": "c17",
             "cppStandard": "c++17",
             "intelliSenseMode": "windows-clang-x64",
-            "compileCommands": "${workspaceFolder}/build/Windows/Release/compile_commands.json",
+            "compileCommands": "${workspaceFolder}/bin/Windows/Release/compile_commands.json",
             "browse": {
                 "path": [
-                    "G:/Programs/Qt/6.1.2/mingw81_64/lib"
+                    "C:/Qt/6.1.2/mingw81_64/lib"
                 ],
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": "${workspaceFolder}/.vscode/db/browse.vs.db"

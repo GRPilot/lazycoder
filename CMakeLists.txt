@@ -1,34 +1,34 @@
-cmake_minimum_required(VERSION 3.5) # The smallest available cmake version to use
+cmake_minimum_required(VERSION 3.5) # The required minimal cmake version.
 
 project(lazycoder LANGUAGES CXX)
 set(scripts_path ${PROJECT_SOURCE_DIR}/scripts)
 message(STATUS "Project name: ${CMAKE_PROJECT_NAME}")
 
-#============================================ includes ============================================#
+#============================================ Includes ============================================#
 include(${scripts_path}/version_utils.cmake)
 include(${scripts_path}/recurse_utils.cmake)
 include(${scripts_path}/add_exe_utils.cmake)
 
 #======================================= Application version ======================================#
-set_version(0.4.0)
+set_version(0.4.1)
 make_version_file("appversion")
 
 #====================================== CMake and Cpp options =====================================#
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
 
-# Auto generating and including qt files
+# Auto generating and including Qt files.
 set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-# Set the c++ parameters
+# Set the C++ parameters.
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
 #================================ Collecting files to include/build ===============================#
 
-# Finding the Qt packages
+# Finding the Qt packages.
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
