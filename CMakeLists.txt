@@ -1,16 +1,17 @@
 cmake_minimum_required(VERSION 3.5) # The smallest abailable cmake version for use
 
+project(lazycoder LANGUAGES CXX)
+set(scripts_path ${PROJECT_SOURCE_DIR}/scripts)
+message(STATUS "Project name: ${CMAKE_PROJECT_NAME}")
+
+#============================================ includes ============================================#
+include(${scripts_path}/version_utils.cmake)
+include(${scripts_path}/recurse_utils.cmake)
+include(${scripts_path}/add_exe_utils.cmake)
+
 #======================================= Application version ======================================#
-set(APP_VER_MAJOR 0)
-set(APP_VER_MINOR 3)
-set(APP_VER_PATCH 0)
-
-project(lazycoder VERSION ${APP_VER_MAJOR}.${APP_VER_MINOR}.${APP_VER_PATCH} LANGUAGES CXX)
-
-set(appver_dir ${PROJECT_SOURCE_DIR}/src/appversion)
-configure_file(
-    ${appver_dir}/appversion.h.in
-    ${appver_dir}/appversion.h)
+set_version(0.4.0)
+make_version_file("appversion")
 
 #====================================== CMake and Cpp options =====================================#
 set(CMAKE_INCLUDE_CURRENT_DIR ON)
@@ -20,9 +21,10 @@ set(CMAKE_AUTOUIC ON)
 set(CMAKE_AUTOMOC ON)
 set(CMAKE_AUTORCC ON)
 
-# Set the c++ standard
+# Set the c++ parameters
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_EXTENSIONS OFF)
 
 #================================ Collecting files to include/build ===============================#
 
@@ -30,47 +32,23 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
-# Getting all *.ts files from /lang/ and save this list in TS_FILES
-file(GLOB TS_FILES ${PROJECT_SOURCE_DIR}/lang/*.ts)
+load_directories_list(${PROJECT_SOURCE_DIR}/src directories)
+load_sources_list(${PROJECT_SOURCE_DIR}/src sources)
 
-include_directories(
-    ${PROJECT_SOURCE_DIR}/src
-    ${PROJECT_SOURCE_DIR}/src/mainwindow
-    ${PROJECT_SOURCE_DIR}/src/appversion
-)
+#========================================= Make executable ========================================#
+add_executable_by_version(${CMAKE_PROJECT_NAME})
 
-file(GLOB_RECURSE PROJECT_SOURCES
-    ${PROJECT_SOURCE_DIR}/src/*.cpp
-    ${PROJECT_SOURCE_DIR}/src/*.h
-    ${PROJECT_SOURCE_DIR}/src/*.ui)
+target_include_directories(${CMAKE_PROJECT_NAME} PUBLIC ${directories})
+target_link_libraries(${CMAKE_PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
 
-list(APPEND PROJECT_SOURCES ${TS_FILES})
-
-# Make build target and translation
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
-    qt_add_executable(lazycoder
-        MANUAL_FINALIZATION
-        ${PROJECT_SOURCES}
-    )
-
-    qt_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
-else()
-    add_executable(lazycoder ${PROJECT_SOURCES})
-
-    qt5_create_translation(QM_FILES ${CMAKE_SOURCE_DIR} ${TS_FILES})
-endif()
-
-# Link all libraries to target
-target_link_libraries(lazycoder PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
-
-set_target_properties(lazycoder PROPERTIES
+set_target_properties(${CMAKE_PROJECT_NAME} PROPERTIES
     MACOSX_BUNDLE_GUI_IDENTIFIER my.example.com
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
 )
 
 if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(lazycoder)
+    qt_finalize_executable(${CMAKE_PROJECT_NAME})
 endif()
 
-install(TARGETS lazycoder DESTINATION ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
+install(TARGETS ${CMAKE_PROJECT_NAME} DESTINATION ${CMAKE_SOURCE_DIR}/bin/${CMAKE_BUILD_TYPE})
