@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5) # The smallest abailable cmake version for use
+cmake_minimum_required(VERSION 3.5) # The smallest available cmake version to use
 
 project(lazycoder LANGUAGES CXX)
 set(scripts_path ${PROJECT_SOURCE_DIR}/scripts)
