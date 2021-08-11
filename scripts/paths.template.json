@@ -1,0 +1,10 @@
+// You have to create file "paths.custom.json with the same content
+// and set your own paths
+{
+    "qt_path": "G:/Programs/Qt",    // path to Qt root
+    "qt_version": "6.1.2",          // version Qt root dir
+    "qt_mingw": "mingw81_64",       // mingw in Qt root dir/version
+    "qt_mingw_tools": "mingw810_64",// mingw in Qt tools dir
+    "build_path": "build",
+    "install_path": "bin"
+}

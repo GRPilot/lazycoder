@@ -39,6 +39,10 @@ Thumbs.db
 .vscode/db
 *.2.DB
 **/BRO
+*custom.*
+.vscode/settings.json
+.vscode/c_cpp_properties.json
+.vscode/launch.json
 
 # qtcreator generated files
 *.pro.user*

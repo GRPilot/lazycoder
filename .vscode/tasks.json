@@ -1,155 +1,112 @@
 {
     "version": "2.0.0",
-    "tasks": [
-        //====================== Configure tasks ======================//
+    "inputs": [
         {
-            "label": "[cmake] Configure debug",
-            "type": "shell",
-            "args": [
-                "${workspaceFolder}",
-                "Debug"
-            ],
-            "windows": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_win.bat",
-                "options": {
-                    "cwd": "${workspaceFolder}/build"
-                }
-            },
-            "linux": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_linux.sh",
-                "options": {
-                    "cwd": "${workspaceFolder}/build"
-                }
-            },
-            "problemMatcher": [],
-        },
-        {
-            "label": "[cmake] Configure release",
-            "type": "shell",
-            "args": [
-                "${workspaceFolder}",
+            "id": "build_type",
+            "description": "Select the build type:",
+            "type": "pickString",
+            "options": [
+                "Debug",
                 "Release"
             ],
+            "default": "Debug"
+        },
+        {
+            "id": "clean_target",
+            "description": "Select the clean target:",
+            "type": "pickString",
+            "options": [
+                "build",
+                "bin",
+                "all"
+            ],
+            "default": "build"
+        }
+    ],
+    "tasks": [
+        //=================== Setup vscode project ====================//
+        {
+            "label": "[python] Setup VSCode project",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/scripts/configure_vscode.py"
+            ],
+            "problemMatcher": "$gcc",
+        },
+
+        //====================== Configure tasks ======================//
+        {
+            "label": "[cmake] Configure",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/scripts/python/configure.py",
+                "${input:build_type}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "problemMatcher": [],
-            "windows": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_win.bat",
-                "options": {
-                    "cwd": "${workspaceFolder}/build"
-                }
-            },
-            "linux": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_linux.sh",
-                "options": {
-                    "cwd": "${workspaceFolder}/build"
-                }
-            },
         },
 
         //====================== Build tasks ======================//
         {
-            "label": "[cmake] Build debug",
+            "label": "[cmake] Build",
             "type": "shell",
-            "command": "cmake",
+            "command": "python",
             "args": [
-                "--build",
-                "."
+                "${workspaceFolder}/scripts/python/build.py",
+                "${input:build_type}"
             ],
-            "windows": {
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Windows/Debug"
-                }
-            },
-            "linux": {
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Linux/Debug"
-                }
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "[cmake] Build release",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--build",
-                "."
-            ],
-            "windows": {
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Windows/Release"
-                }
-            },
-            "linux": {
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Linux/Release"
-                }
+            "options": {
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": []
         },
 
         //====================== Install tasks ======================//
         {
-            "label": "[cmake] Install debug",
+            "label": "[cmake] Install",
             "type": "shell",
+            "command": "python",
             "args": [
-                "${workspaceFolder}",
-                "Debug"
+                "${workspaceFolder}/scripts/python/install.py",
+                "${input:build_type}"
             ],
-            "windows": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_win.bat",
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Windows/Debug"
-                }
-            },
-            "linux": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_linux.sh",
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Linux/Debug"
-                }
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "[cmake] Install release",
-            "type": "shell",
-            "args": [
-                "${workspaceFolder}",
-                "Release"
-            ],
-            "windows": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_win.bat",
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Windows/Release"
-                }
-            },
-            "linux": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_linux.sh",
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Linux/Release"
-                }
+            "options": {
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": []
         },
 
-        //====================== Configure and build tasks ======================//
+        //======================= Clear tasks =======================//
         {
-            "label": "[cmake] Configure and build debug",
-            "dependsOn": [
-                "[cmake] Configure debug",
-                "[cmake] Build debug",
-                "[cmake] Install debug"
+            "label": "[python] Clean",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/scripts/python/clean.py",
+                "${input:clean_target}"
             ],
-            "dependsOrder": "sequence",
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
             "problemMatcher": []
         },
+
+        //================ Configure and build tasks ================//
         {
-            "label": "[cmake] Configure and build release",
+            "label": "[cmake] Configure and build",
             "dependsOn": [
-                "[cmake] Configure release",
-                "[cmake] Build release",
-                "[cmake] Install release"
+                "[cmake] Configure",
+                "[cmake] Build",
+                "[cmake] Install"
             ],
             "dependsOrder": "sequence",
+            "args": [
+                "${input:build_type}"
+            ],
             "problemMatcher": []
         }
     ]
