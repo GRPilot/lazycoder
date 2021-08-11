@@ -16,7 +16,7 @@ def make_launch_json(paths):
                 "name": "g++.exe - Build and debug active file",
                 "type": "cppdbg",
                 "request": "launch",
-                "program": f"{root}/{bin}'/Debug/lazycoder.exe",
+                "program": f"{root}/{bin}/Debug/lazycoder.exe",
                 "args": [],
                 "stopAtEntry": False,
                 "cwd": f"{root}/{bin}",
@@ -31,7 +31,7 @@ def make_launch_json(paths):
                         "ignoreFailures": True
                     }
                 ],
-                "preLaunchTask": "[cmake] Configure and build debug"
+                "preLaunchTask": "[cmake] Configure and build"
             }
         ]
     }
