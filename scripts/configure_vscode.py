@@ -93,15 +93,13 @@ def setup_config(config_json, filename):
         print(f"[ERROR] Cannot create file '{config}'")
 
 def main():
-    root = project_root()
-    paths = load_paths(f"{root}/scripts/paths.custom.json")
+    paths = load_paths()
     if paths == None:
         exit()
     launch_json = make_launch_json(paths)
     c_cpp_properties_json = make_c_cpp_properties_json(paths)
     setup_config(launch_json, 'launch.json')
     setup_config(c_cpp_properties_json, 'c_cpp_properties.json')
-
 
 if __name__ == "__main__":
     main()

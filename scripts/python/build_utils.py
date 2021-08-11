@@ -4,7 +4,7 @@ import json
 
 PROJECT_NAME = 'lazycoder'
 
-def load_paths(filename: str):
+def load(filename: str):
     if len(filename) == 0 or not os.path.isfile(filename):
         print(f"[ERROR] Invalid path to file: {filename}")
         return None
@@ -20,6 +20,9 @@ def load_paths(filename: str):
 
     return paths
 
+def load_paths():
+    return load(f"{project_root()}/scripts/paths.custom.json")
+
 def project_root():
     cwd = str(os.path.dirname(os.path.realpath(__file__)))
     pos = cwd.find(PROJECT_NAME)
@@ -29,3 +32,9 @@ def project_root():
 
     pos += len(PROJECT_NAME)
     return cwd[:pos]
+
+def change_dir(dir):
+    path = f"{os.getcwd()}/{dir}"
+    if not os.path.isdir(path):
+        os.mkdir(path)
+    os.chdir(path)
