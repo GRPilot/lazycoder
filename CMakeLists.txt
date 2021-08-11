@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.5) # The smallest abailable cmake version for use
 
 project(lazycoder LANGUAGES CXX)
-set(scripts_path ${PROJECT_SOURCE_DIR}/scripts)
 message(STATUS "Project name: ${CMAKE_PROJECT_NAME}")
 
 #============================================ includes ============================================#
+set(scripts_path ${PROJECT_SOURCE_DIR}/scripts/cmake)
 include(${scripts_path}/version_utils.cmake)
 include(${scripts_path}/recurse_utils.cmake)
 include(${scripts_path}/add_exe_utils.cmake)
