@@ -10,6 +10,17 @@
                 "Release"
             ],
             "default": "Debug"
+        },
+        {
+            "id": "clean_target",
+            "description": "Select the clean target:",
+            "type": "pickString",
+            "options": [
+                "build",
+                "bin",
+                "all"
+            ],
+            "default": "build"
         }
     ],
     "tasks": [
@@ -69,7 +80,22 @@
             "problemMatcher": []
         },
 
-        //====================== Configure and build tasks ======================//
+        //======================= Clear tasks =======================//
+        {
+            "label": "[python] Clean",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/scripts/python/clean.py",
+                "${input:clean_target}"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": []
+        },
+
+        //================ Configure and build tasks ================//
         {
             "label": "[cmake] Configure and build",
             "dependsOn": [
