@@ -1,5 +1,17 @@
 {
     "version": "2.0.0",
+    "inputs": [
+        {
+            "id": "build_type",
+            "description": "Select the build type:",
+            "type": "pickString",
+            "options": [
+                "Debug",
+                "Release"
+            ],
+            "default": "Debug"
+        }
+    ],
     "tasks": [
         //=================== Setup vscode project ====================//
         {
@@ -14,46 +26,17 @@
 
         //====================== Configure tasks ======================//
         {
-            "label": "[cmake] Configure debug",
+            "label": "[cmake] Configure",
             "type": "shell",
+            "command": "python",
             "args": [
-                "${workspaceFolder}",
-                "Debug"
+                "${workspaceFolder}/scripts/python/configure.py",
+                "${input:build_type}"
             ],
-            "windows": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_win.bat",
-                "options": {
-                    "cwd": "${workspaceFolder}/build"
-                }
-            },
-            "linux": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_linux.sh",
-                "options": {
-                    "cwd": "${workspaceFolder}/build"
-                }
+            "options": {
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": [],
-        },
-        {
-            "label": "[cmake] Configure release",
-            "type": "shell",
-            "args": [
-                "${workspaceFolder}",
-                "Release"
-            ],
-            "problemMatcher": [],
-            "windows": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_win.bat",
-                "options": {
-                    "cwd": "${workspaceFolder}/build"
-                }
-            },
-            "linux": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/configure/configure_linux.sh",
-                "options": {
-                    "cwd": "${workspaceFolder}/build"
-                }
-            },
         },
 
         //====================== Build tasks ======================//
