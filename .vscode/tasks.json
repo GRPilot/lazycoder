@@ -1,6 +1,17 @@
 {
     "version": "2.0.0",
     "tasks": [
+        //=================== Setup vscode project ====================//
+        {
+            "label": "[python] Setup VSCode project",
+            "type": "shell",
+            "command": "python",
+            "args": [
+                "${workspaceFolder}/scripts/configure_vscode.py"
+            ],
+            "problemMatcher": "$gcc",
+        },
+
         //====================== Configure tasks ======================//
         {
             "label": "[cmake] Configure debug",
