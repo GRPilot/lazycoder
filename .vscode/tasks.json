@@ -41,42 +41,15 @@
 
         //====================== Build tasks ======================//
         {
-            "label": "[cmake] Build debug",
+            "label": "[cmake] Build",
             "type": "shell",
-            "command": "cmake",
+            "command": "python",
             "args": [
-                "--build",
-                "."
+                "${workspaceFolder}/scripts/python/build.py",
+                "${input:build_type}"
             ],
-            "windows": {
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Windows/Debug"
-                }
-            },
-            "linux": {
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Linux/Debug"
-                }
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "[cmake] Build release",
-            "type": "shell",
-            "command": "cmake",
-            "args": [
-                "--build",
-                "."
-            ],
-            "windows": {
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Windows/Release"
-                }
-            },
-            "linux": {
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Linux/Release"
-                }
+            "options": {
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": []
         },
