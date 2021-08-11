@@ -56,67 +56,31 @@
 
         //====================== Install tasks ======================//
         {
-            "label": "[cmake] Install debug",
+            "label": "[cmake] Install",
             "type": "shell",
+            "command": "python",
             "args": [
-                "${workspaceFolder}",
-                "Debug"
+                "${workspaceFolder}/scripts/python/install.py",
+                "${input:build_type}"
             ],
-            "windows": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_win.bat",
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Windows/Debug"
-                }
-            },
-            "linux": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_linux.sh",
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Linux/Debug"
-                }
-            },
-            "problemMatcher": []
-        },
-        {
-            "label": "[cmake] Install release",
-            "type": "shell",
-            "args": [
-                "${workspaceFolder}",
-                "Release"
-            ],
-            "windows": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_win.bat",
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Windows/Release"
-                }
-            },
-            "linux": {
-                "command": "${workspaceFolder}/.vscode/build_scripts/install/install_linux.sh",
-                "options": {
-                    "cwd": "${workspaceFolder}/build/Linux/Release"
-                }
+            "options": {
+                "cwd": "${workspaceFolder}"
             },
             "problemMatcher": []
         },
 
         //====================== Configure and build tasks ======================//
         {
-            "label": "[cmake] Configure and build debug",
+            "label": "[cmake] Configure and build",
             "dependsOn": [
-                "[cmake] Configure debug",
-                "[cmake] Build debug",
-                "[cmake] Install debug"
+                "[cmake] Configure",
+                "[cmake] Build",
+                "[cmake] Install"
             ],
             "dependsOrder": "sequence",
-            "problemMatcher": []
-        },
-        {
-            "label": "[cmake] Configure and build release",
-            "dependsOn": [
-                "[cmake] Configure release",
-                "[cmake] Build release",
-                "[cmake] Install release"
+            "args": [
+                "${input:build_type}"
             ],
-            "dependsOrder": "sequence",
             "problemMatcher": []
         }
     ]
