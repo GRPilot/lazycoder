@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5) # The smallest abailable cmake version for use
+cmake_minimum_required(VERSION 3.5) # The minimum required cmake version to use.
 
 project(lazycoder LANGUAGES CXX)
 message(STATUS "Project name: ${CMAKE_PROJECT_NAME}")
@@ -10,7 +10,7 @@ include(${scripts_path}/recurse_utils.cmake)
 include(${scripts_path}/add_exe_utils.cmake)
 
 #======================================= Application version ======================================#
-set_version(0.4.0)
+set_version(0.5.0)
 make_version_file("appversion")
 
 #====================================== CMake and Cpp options =====================================#

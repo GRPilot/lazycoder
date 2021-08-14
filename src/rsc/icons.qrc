@@ -1,0 +1,12 @@
+<RCC>
+  <qresource prefix="icons">
+    <file>icons/settings.png</file>
+    <file>icons/cpp.png</file>
+    <file>icons/csharp.png</file>
+    <file>icons/menu.png</file>
+    <file>icons/close.png</file>
+    <file>icons/icon.png</file>
+    <file>icons/maximize.png</file>
+    <file>icons/minimize.png</file>
+  </qresource>
+</RCC>
