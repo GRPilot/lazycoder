@@ -1,14 +1,14 @@
+#include "common.h"
+
 #include "mainwindow.h"
 #include "./ui_mainwindow.h"
+#include "appversion.h"
 
 MainWindow::MainWindow(QWidget *parent)
-    : QMainWindow(parent), ui(new Ui::MainWindow) {
+    : QMainWindow{ parent, Qt::Window | Qt::CustomizeWindowHint }, ui(new Ui::MainWindow) {
     
     // Set UI up.
     ui->setupUi(this);
-
-    // Specify window properties (get rid of title bar and default buttons).
-    setWindowFlags(Qt::Window | Qt::CustomizeWindowHint);
 
     // Change text in footer (status bar).
     ui->appVersion->setText("Version " + AppInfo::Version::qStr() +
