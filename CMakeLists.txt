@@ -36,7 +36,7 @@ load_directories_list(${PROJECT_SOURCE_DIR}/src directories)
 load_sources_list(${PROJECT_SOURCE_DIR}
     sources
     translate_files
-    resources_files
+    resource_files
 )
 
 #========================================= Make executable ========================================#
