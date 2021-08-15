@@ -14,20 +14,28 @@ MainWindow::MainWindow(QWidget *parent)
     ui->appVersion->setText("Version " + AppInfo::Version::qStr() +
                             " | Copyright: seigtm x gollan | "
                             "From 2021 with love 🥰");
+
+    connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
+    connect(ui->maximizeButton, &QPushButton::clicked, this, &MainWindow::onMaximizeButtonClicked);
+    connect(ui->minimizeButton, &QPushButton::clicked, this, &MainWindow::onMinimizeButtonClicked);
 }
 
 MainWindow::~MainWindow() {
     delete ui;
 }
 
-void MainWindow::on_closeButton_clicked() {
+void MainWindow::onCloseButtonClicked() {
     close();
 }
 
-void MainWindow::on_maximizeButton_clicked() {
-    isMaximized() ? showNormal() : showMaximized();
+void MainWindow::onMaximizeButtonClicked() {
+    if(isMaximized()) {
+        showNormal();
+    } else {
+        showMaximized();
+    }
 }
 
-void MainWindow::on_minimizeButton_clicked() {
+void MainWindow::onMinimizeButtonClicked() {
     showMinimized();
 }

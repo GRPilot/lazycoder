@@ -15,9 +15,9 @@ public:
     ~MainWindow();
 
 private slots:
-    void on_closeButton_clicked();
-    void on_maximizeButton_clicked();
-    void on_minimizeButton_clicked();
+    void onCloseButtonClicked();
+    void onMaximizeButtonClicked();
+    void onMinimizeButtonClicked();
 
 private:
     Ui::MainWindow *ui;
