@@ -19,6 +19,9 @@
 	background-color: rgb(255, 191, 191);
 }</string>
   </property>
+  <property name="locale">
+   <locale language="English" country="UnitedStates"/>
+  </property>
   <widget class="QWidget" name="mainWidget">
    <property name="contextMenuPolicy">
     <enum>Qt::DefaultContextMenu</enum>
@@ -52,7 +55,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -97,7 +100,6 @@
             <property name="font">
              <font>
               <pointsize>12</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -105,7 +107,7 @@
              <string>Menu</string>
             </property>
             <property name="icon">
-             <iconset resource="../rsc/icons.qrc">
+             <iconset resource="../../res/icons.qrc">
               <normaloff>:/icons/icons/menu.png</normaloff>:/icons/icons/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -143,35 +145,62 @@
           <property name="bottomMargin">
            <number>0</number>
           </property>
-          <item alignment="Qt::AlignRight">
-           <widget class="QLabel" name="appIcon">
-            <property name="text">
-             <string/>
+          <item>
+           <spacer name="horizontalSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
             </property>
-            <property name="pixmap">
-             <pixmap resource="../rsc/icons.qrc">:/icons/icons/icon.png</pixmap>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
             </property>
-            <property name="scaledContents">
-             <bool>true</bool>
-            </property>
-            <property name="alignment">
-             <set>Qt::AlignCenter</set>
-            </property>
-           </widget>
+           </spacer>
           </item>
           <item>
-           <widget class="QLabel" name="appName">
+           <widget class="QPushButton" name="pushButton">
+            <property name="enabled">
+             <bool>true</bool>
+            </property>
             <property name="font">
              <font>
               <pointsize>20</pointsize>
-              <weight>75</weight>
-              <bold>true</bold>
              </font>
+            </property>
+            <property name="locale">
+             <locale language="English" country="UnitedStates"/>
             </property>
             <property name="text">
              <string>lazycoder</string>
             </property>
+            <property name="icon">
+             <iconset resource="../../res/icons.qrc">
+              <normaloff>:/icons/icons/icon.png</normaloff>:/icons/icons/icon.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>36</width>
+              <height>36</height>
+             </size>
+            </property>
+            <property name="shortcut">
+             <string notr="true"/>
+            </property>
            </widget>
+          </item>
+          <item>
+           <spacer name="horizontalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
           </item>
          </layout>
         </widget>
@@ -206,7 +235,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../rsc/icons.qrc">
+             <iconset resource="../../res/icons.qrc">
               <normaloff>:/icons/icons/minimize.png</normaloff>:/icons/icons/minimize.png</iconset>
             </property>
            </widget>
@@ -217,7 +246,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../rsc/icons.qrc">
+             <iconset resource="../../res/icons.qrc">
               <normaloff>:/icons/icons/maximize.png</normaloff>:/icons/icons/maximize.png</iconset>
             </property>
            </widget>
@@ -228,7 +257,7 @@
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../rsc/icons.qrc">
+             <iconset resource="../../res/icons.qrc">
               <normaloff>:/icons/icons/close.png</normaloff>:/icons/icons/close.png</iconset>
             </property>
            </widget>
@@ -269,7 +298,7 @@
        <property name="bottomMargin">
         <number>0</number>
        </property>
-       <item alignment="Qt::AlignLeft">
+       <item>
         <widget class="QFrame" name="menu">
          <property name="sizePolicy">
           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -300,13 +329,7 @@
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QFormLayout" name="formLayout">
-          <property name="horizontalSpacing">
-           <number>5</number>
-          </property>
-          <property name="verticalSpacing">
-           <number>10</number>
-          </property>
+         <layout class="QVBoxLayout" name="verticalLayout_4">
           <property name="leftMargin">
            <number>5</number>
           </property>
@@ -319,100 +342,7 @@
           <property name="bottomMargin">
            <number>5</number>
           </property>
-          <item row="0" column="0">
-           <widget class="QPushButton" name="menuCppButton">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../rsc/icons.qrc">
-              <normaloff>:/icons/icons/cpp.png</normaloff>:/icons/icons/cpp.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="0">
-           <widget class="QPushButton" name="menuCSharpButton">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../rsc/icons.qrc">
-              <normaloff>:/icons/icons/csharp.png</normaloff>:/icons/icons/csharp.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="0">
-           <widget class="QPushButton" name="menuSettingsButton">
-            <property name="text">
-             <string/>
-            </property>
-            <property name="icon">
-             <iconset resource="../rsc/icons.qrc">
-              <normaloff>:/icons/icons/settings.png</normaloff>:/icons/icons/settings.png</iconset>
-            </property>
-            <property name="iconSize">
-             <size>
-              <width>32</width>
-              <height>32</height>
-             </size>
-            </property>
-           </widget>
-          </item>
-          <item row="0" column="1">
-           <widget class="QLabel" name="menuCpp">
-            <property name="font">
-             <font>
-              <pointsize>14</pointsize>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>C++</string>
-            </property>
-           </widget>
-          </item>
-          <item row="1" column="1">
-           <widget class="QLabel" name="menuCSharp">
-            <property name="font">
-             <font>
-              <pointsize>14</pointsize>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>C#</string>
-            </property>
-           </widget>
-          </item>
-          <item row="3" column="1">
-           <widget class="QLabel" name="menuSettings">
-            <property name="font">
-             <font>
-              <pointsize>14</pointsize>
-              <weight>50</weight>
-              <bold>false</bold>
-             </font>
-            </property>
-            <property name="text">
-             <string>Settings</string>
-            </property>
-           </widget>
-          </item>
-          <item row="2" column="0">
+          <item>
            <spacer name="verticalSpacer">
             <property name="orientation">
              <enum>Qt::Vertical</enum>
@@ -424,6 +354,37 @@
              </size>
             </property>
            </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="settingsButton">
+            <property name="font">
+             <font>
+              <pointsize>14</pointsize>
+             </font>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="locale">
+             <locale language="English" country="UnitedStates"/>
+            </property>
+            <property name="text">
+             <string>Settings</string>
+            </property>
+            <property name="icon">
+             <iconset resource="../../res/icons.qrc">
+              <normaloff>:/icons/icons/settings.png</normaloff>:/icons/icons/settings.png</iconset>
+            </property>
+            <property name="iconSize">
+             <size>
+              <width>32</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="flat">
+             <bool>false</bool>
+            </property>
+           </widget>
           </item>
          </layout>
         </widget>
@@ -461,7 +422,7 @@
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_5">
+      <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,1">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -469,13 +430,13 @@
         <number>5</number>
        </property>
        <property name="topMargin">
-        <number>10</number>
+        <number>1</number>
        </property>
        <property name="rightMargin">
         <number>5</number>
        </property>
        <property name="bottomMargin">
-        <number>10</number>
+        <number>1</number>
        </property>
        <item alignment="Qt::AlignLeft">
         <widget class="QLabel" name="appVersion">
@@ -483,6 +444,9 @@
           <font>
            <pointsize>10</pointsize>
           </font>
+         </property>
+         <property name="locale">
+          <locale language="English" country="UnitedStates"/>
          </property>
          <property name="text">
           <string>Version {} | Copyright seigtm x gollan | 2021</string>
@@ -518,7 +482,9 @@
   </widget>
  </widget>
  <resources>
-  <include location="../rsc/icons.qrc"/>
+  <include location="../../res/icons.qrc"/>
+  <include location="../../res/icons.qrc"/>
+  <include location="C:/Users/rusan/res/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
