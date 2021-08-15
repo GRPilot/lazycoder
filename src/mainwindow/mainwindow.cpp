@@ -11,9 +11,8 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     // Change text in footer (status bar).
-    ui->appVersion->setText("Version " + AppInfo::Version::qStr() +
-                            " | Copyright: seigtm x gollan | "
-                            "From 2021 with love 🥰");
+    auto format{ ui->appVersion->text() };
+    ui->appVersion->setText(format.arg(AppInfo::Version::qStr()));
 
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
     connect(ui->maximizeButton, &QPushButton::clicked, this, &MainWindow::onMaximizeButtonClicked);
