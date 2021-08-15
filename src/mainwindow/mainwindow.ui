@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
+ <author>Konstantin Baranov</author>
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
   <property name="geometry">
@@ -18,9 +19,6 @@
 	border: none;
 	background-color: rgb(255, 191, 191);
 }</string>
-  </property>
-  <property name="locale">
-   <locale language="English" country="UnitedStates"/>
   </property>
   <widget class="QWidget" name="mainWidget">
    <property name="contextMenuPolicy">
