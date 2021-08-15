@@ -33,7 +33,11 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
 load_directories_list(${PROJECT_SOURCE_DIR}/src directories)
-load_sources_list(${PROJECT_SOURCE_DIR}/src sources)
+load_sources_list(${PROJECT_SOURCE_DIR}
+    sources
+    translate_files
+    resources_files
+)
 
 #========================================= Make executable ========================================#
 add_executable_by_version(${CMAKE_PROJECT_NAME})

@@ -12,17 +12,19 @@ function(load_directories_list dir_path result)
 endfunction()
 
 # This function puts cpp, h, hpp, ui, qrc and ts files into result
-function(load_sources_list dir_path result)
-    file(GLOB qrc_files ${PROJECT_SOURCE_DIR}/res/*.qrc)
-    file(GLOB ts_files ${PROJECT_SOURCE_DIR}/lang/*.ts)
+function(load_sources_list dir_path src ts res)
+    file(GLOB qrc_files ${dir_path}/res/*.qrc)
+    file(GLOB ts_files ${dir_path}/lang/*.ts)
     file(GLOB_RECURSE sources
-        ${dir_path}/*.cpp
-        ${dir_path}/*.hpp
-        ${dir_path}/*.h
-        ${dir_path}/*.ui
+        ${dir_path}/src/*.cpp
+        ${dir_path}/src/*.hpp
+        ${dir_path}/src/*.h
+        ${dir_path}/src/*.ui
     )
-    list(APPEND sources ${ts_files})
-    list(APPEND sources ${qrc_files})
+    # list(APPEND sources ${ts_files})
+    # list(APPEND sources ${qrc_files})
     list(REMOVE_DUPLICATES sources)
-    set(${result} ${sources} PARENT_SCOPE)
+    set(${src} ${sources} PARENT_SCOPE)
+    set(${ts} ${ts_files} PARENT_SCOPE)
+    set(${res} ${qrc_files} PARENT_SCOPE)
 endfunction()
