@@ -84,7 +84,7 @@
            <number>0</number>
           </property>
           <property name="leftMargin">
-           <number>5</number>
+           <number>0</number>
           </property>
           <property name="topMargin">
            <number>0</number>
@@ -97,6 +97,12 @@
           </property>
           <item alignment="Qt::AlignLeft">
            <widget class="QPushButton" name="menuButton">
+            <property name="minimumSize">
+             <size>
+              <width>32</width>
+              <height>0</height>
+             </size>
+            </property>
             <property name="font">
              <font>
               <pointsize>12</pointsize>
@@ -115,6 +121,12 @@
               <width>32</width>
               <height>32</height>
              </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
+            </property>
+            <property name="checked">
+             <bool>false</bool>
             </property>
            </widget>
           </item>
@@ -331,10 +343,10 @@
          </property>
          <layout class="QVBoxLayout" name="verticalLayout_4">
           <property name="leftMargin">
-           <number>5</number>
+           <number>0</number>
           </property>
           <property name="topMargin">
-           <number>5</number>
+           <number>0</number>
           </property>
           <property name="rightMargin">
            <number>0</number>
@@ -380,6 +392,9 @@
               <width>32</width>
               <height>32</height>
              </size>
+            </property>
+            <property name="checkable">
+             <bool>true</bool>
             </property>
             <property name="flat">
              <bool>false</bool>

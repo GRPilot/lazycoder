@@ -11,13 +11,14 @@ class MainWindow : public QMainWindow {
     Q_OBJECT
 
 public:
-    MainWindow(QWidget *parent = nullptr);
+    explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
 private slots:
     void onCloseButtonClicked();
     void onMaximizeButtonClicked();
     void onMinimizeButtonClicked();
+    void onMenuToggled(bool checked);
 
 private:
     Ui::MainWindow *ui;

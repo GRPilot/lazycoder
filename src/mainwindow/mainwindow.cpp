@@ -6,7 +6,7 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{ parent, Qt::Window | Qt::CustomizeWindowHint }, ui(new Ui::MainWindow) {
-    
+
     // Set UI up.
     ui->setupUi(this);
 
@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent)
     connect(ui->closeButton, &QPushButton::clicked, this, &MainWindow::onCloseButtonClicked);
     connect(ui->maximizeButton, &QPushButton::clicked, this, &MainWindow::onMaximizeButtonClicked);
     connect(ui->minimizeButton, &QPushButton::clicked, this, &MainWindow::onMinimizeButtonClicked);
+    connect(ui->menuButton, &QPushButton::toggled, this, &MainWindow::onMenuToggled);
 }
 
 MainWindow::~MainWindow() {
@@ -38,4 +39,8 @@ void MainWindow::onMaximizeButtonClicked() {
 
 void MainWindow::onMinimizeButtonClicked() {
     showMinimized();
+}
+
+void MainWindow::onMenuToggled(bool checked) {
+    /// @todo Toggle left bar
 }
