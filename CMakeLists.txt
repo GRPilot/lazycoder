@@ -1,4 +1,4 @@
-cmake_minimum_required(VERSION 3.5) # The smallest abailable cmake version for use
+cmake_minimum_required(VERSION 3.5) # The minimum required cmake version to use.
 
 project(lazycoder LANGUAGES CXX)
 message(STATUS "Project name: ${CMAKE_PROJECT_NAME}")
@@ -10,7 +10,7 @@ include(${scripts_path}/recurse_utils.cmake)
 include(${scripts_path}/add_exe_utils.cmake)
 
 #======================================= Application version ======================================#
-set_version(0.4.0)
+set_version(0.5.0)
 make_version_file("appversion")
 
 #====================================== CMake and Cpp options =====================================#
@@ -33,7 +33,11 @@ find_package(QT NAMES Qt6 Qt5 COMPONENTS Widgets LinguistTools REQUIRED)
 find_package(Qt${QT_VERSION_MAJOR} COMPONENTS Widgets LinguistTools REQUIRED)
 
 load_directories_list(${PROJECT_SOURCE_DIR}/src directories)
-load_sources_list(${PROJECT_SOURCE_DIR}/src sources)
+load_sources_list(${PROJECT_SOURCE_DIR}
+    sources
+    translate_files
+    resource_files
+)
 
 #========================================= Make executable ========================================#
 add_executable_by_version(${CMAKE_PROJECT_NAME})

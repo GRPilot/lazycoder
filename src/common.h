@@ -3,6 +3,9 @@
 
 #include <string>
 #include <sstream>
+#include <thread>
+#include <future>
+#include <chrono>
 
 // QT includes
 #include <QApplication>
