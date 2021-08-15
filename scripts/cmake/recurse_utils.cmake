@@ -13,15 +13,16 @@ endfunction()
 
 # This function puts cpp, h, hpp, ui, qrc and ts files into result
 function(load_sources_list dir_path result)
+    file(GLOB qrc_files ${PROJECT_SOURCE_DIR}/res/*.qrc)
     file(GLOB ts_files ${PROJECT_SOURCE_DIR}/lang/*.ts)
     file(GLOB_RECURSE sources
         ${dir_path}/*.cpp
         ${dir_path}/*.hpp
         ${dir_path}/*.h
         ${dir_path}/*.ui
-        ${dir_path}/*.qrc
     )
     list(APPEND sources ${ts_files})
+    list(APPEND sources ${qrc_files})
     list(REMOVE_DUPLICATES sources)
     set(${result} ${sources} PARENT_SCOPE)
 endfunction()
