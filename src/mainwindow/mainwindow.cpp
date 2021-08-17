@@ -1,8 +1,8 @@
-#include "common.h"
-
 #include "mainwindow.h"
+
 #include "./ui_mainwindow.h"
 #include "appversion.h"
+#include "common.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{ parent, Qt::Window | Qt::CustomizeWindowHint }, ui(new Ui::MainWindow) {
@@ -29,7 +29,7 @@ void MainWindow::onCloseButtonClicked() {
 }
 
 void MainWindow::onMaximizeButtonClicked() {
-    if(isMaximized()) {
+    if (isMaximized()) {
         showNormal();
     } else {
         showMaximized();
@@ -42,4 +42,23 @@ void MainWindow::onMinimizeButtonClicked() {
 
 void MainWindow::onMenuToggled(bool checked) {
     /// @todo Toggle left bar
+}
+
+void MainWindow::mousePressEvent(QMouseEvent *event) {
+    // Get the current cursor position.
+    mousePoint = event->globalPosition();
+}
+
+void MainWindow::mouseMoveEvent(QMouseEvent *event) {
+    // Move window only if it's not maximized.
+    if (isMaximized()) {
+        return;
+    }
+
+    // If left mouse button clicked.
+    if (event->buttons() == Qt::LeftButton) {
+        // Move window.
+        move(pos() + event->globalPosition().toPoint() - mousePoint.toPoint());
+        mousePoint = event->globalPosition().toPoint();
+    }
 }

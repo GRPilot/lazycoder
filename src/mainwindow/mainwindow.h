@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QMouseEvent>
+#include <QPoint>
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
@@ -14,6 +16,10 @@ public:
     explicit MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+protected:
+    void mousePressEvent(QMouseEvent *event);
+    void mouseMoveEvent(QMouseEvent *event);
+
 private slots:
     void onCloseButtonClicked();
     void onMaximizeButtonClicked();
@@ -22,5 +28,8 @@ private slots:
 
 private:
     Ui::MainWindow *ui;
+
+    // Current cursor position.
+    QPointF mousePoint;
 };
 #endif // MAINWINDOW_H

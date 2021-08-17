@@ -1,5 +1,11 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/english.png</file>
+    <file>icons/folder.png</file>
+    <file>icons/git.png</file>
+    <file>icons/russian.png</file>
+    <file>icons/sync.png</file>
+    <file>icons/theme.png</file>
     <file>icons/settings.png</file>
     <file>icons/cpp.png</file>
     <file>icons/csharp.png</file>
