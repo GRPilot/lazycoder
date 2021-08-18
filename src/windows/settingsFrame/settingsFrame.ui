@@ -80,7 +80,7 @@
          <string>Sync templates list</string>
         </property>
         <property name="icon">
-         <iconset resource="../../res/icons.qrc">
+         <iconset resource="../../../res/icons.qrc">
           <normaloff>:/icons/icons/sync.png</normaloff>:/icons/icons/sync.png</iconset>
         </property>
         <property name="iconSize">
@@ -102,7 +102,7 @@
          <string>Edit repositories list</string>
         </property>
         <property name="icon">
-         <iconset resource="../../res/icons.qrc">
+         <iconset resource="../../../res/icons.qrc">
           <normaloff>:/icons/icons/git.png</normaloff>:/icons/icons/git.png</iconset>
         </property>
         <property name="iconSize">
@@ -136,7 +136,7 @@
          <string>Language</string>
         </property>
         <property name="icon">
-         <iconset resource="../../res/icons.qrc">
+         <iconset resource="../../../res/icons.qrc">
           <normaloff>:/icons/icons/english.png</normaloff>:/icons/icons/english.png</iconset>
         </property>
         <property name="iconSize">
@@ -158,7 +158,7 @@
          <string>Theme</string>
         </property>
         <property name="icon">
-         <iconset resource="../../res/icons.qrc">
+         <iconset resource="../../../res/icons.qrc">
           <normaloff>:/icons/icons/theme.png</normaloff>:/icons/icons/theme.png</iconset>
         </property>
         <property name="iconSize">
@@ -180,7 +180,7 @@
          <string>Templates default directory</string>
         </property>
         <property name="icon">
-         <iconset resource="../../res/icons.qrc">
+         <iconset resource="../../../res/icons.qrc">
           <normaloff>:/icons/icons/folder.png</normaloff>:/icons/icons/folder.png</iconset>
         </property>
         <property name="iconSize">
@@ -197,7 +197,7 @@
   </layout>
  </widget>
  <resources>
-  <include location="../../res/icons.qrc"/>
+  <include location="../../../res/icons.qrc"/>
  </resources>
  <connections/>
 </ui>
