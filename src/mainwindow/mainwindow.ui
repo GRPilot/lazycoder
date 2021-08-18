@@ -15,14 +15,42 @@
    <string>lazycoder</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">* {
+   <string notr="true">/* Main app style */
+* {
+	background-color: rgb(244,244,244);
 	border: none;
-	background-color: rgb(255,255,255);
+}
+
+/* Menu buttons style */
+QFrame#menu QPushButton {
+	padding: 5px;
+}
+/* Menu buttons style on hover */
+QFrame#menu QPushButton::hover {
+	border: 1px solid black;
+	border-radius: 5px;
+}
+/* Menu buttons style when checked */
+QFrame#menu QPushButton::checked {
+	background-color: rgb(220,220,220);
+	border-radius: 5px;
+}
+/* Window control buttons style  */
+QFrame#headerRight QPushButton {
+	/* Your styles here */
+}
+
+/* Content widget style (page placeholder) */
+QWidget#widget {
+	background-color: white;
 }</string>
   </property>
   <widget class="QWidget" name="mainWidget">
    <property name="contextMenuPolicy">
     <enum>Qt::DefaultContextMenu</enum>
+   </property>
+   <property name="styleSheet">
+    <string notr="true"/>
    </property>
    <layout class="QVBoxLayout" name="verticalLayout_2">
     <property name="spacing">
@@ -43,14 +71,7 @@
     <item alignment="Qt::AlignTop">
      <widget class="QFrame" name="header">
       <property name="styleSheet">
-       <string notr="true">* {
-	background-color: rgb(242,244,245);
-}
-
-QFrame {
-	border-bottom: 1px solid rgb(238,242,245);
-}
-</string>
+       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -326,18 +347,7 @@ QFrame {
           </size>
          </property>
          <property name="styleSheet">
-          <string notr="true">* {
-	background-color: rgb(242,244,245);
-}
-
-QPushButton {
-	padding: 5px;
-}
-
-QPushButton::checked {
-	background-color: rgb(220,220,220);
-	border-radius: 5px;
-}</string>
+          <string notr="true"/>
          </property>
          <property name="frameShape">
           <enum>QFrame::NoFrame</enum>
