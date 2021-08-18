@@ -52,7 +52,7 @@ QWidget#widget {
    <property name="styleSheet">
     <string notr="true"/>
    </property>
-   <layout class="QVBoxLayout" name="verticalLayout_2">
+   <layout class="QVBoxLayout" name="mainLayout">
     <property name="spacing">
      <number>0</number>
     </property>
@@ -79,7 +79,7 @@ QWidget#widget {
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout" stretch="0,1,0">
+      <layout class="QHBoxLayout" name="headerLayout" stretch="0,1,0">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -103,7 +103,7 @@ QWidget#widget {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <layout class="QHBoxLayout" name="headerLeftLayout">
           <property name="spacing">
            <number>0</number>
           </property>
@@ -130,6 +130,7 @@ QWidget#widget {
             <property name="font">
              <font>
               <pointsize>12</pointsize>
+              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>
@@ -143,7 +144,7 @@ QWidget#widget {
              <string>Menu</string>
             </property>
             <property name="icon">
-             <iconset resource="../../res/icons.qrc">
+             <iconset resource="../../../res/icons.qrc">
               <normaloff>:/icons/icons/menu.png</normaloff>:/icons/icons/menu.png</iconset>
             </property>
             <property name="iconSize">
@@ -171,7 +172,7 @@ QWidget#widget {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_3">
+         <layout class="QHBoxLayout" name="headerCenterLayout">
           <property name="spacing">
            <number>2</number>
           </property>
@@ -204,7 +205,7 @@ QWidget#widget {
              <string>lazycoder</string>
             </property>
             <property name="icon">
-             <iconset resource="../../res/icons.qrc">
+             <iconset resource="../../../res/icons.qrc">
               <normaloff>:/icons/icons/icon.png</normaloff>:/icons/icons/icon.png</iconset>
             </property>
             <property name="iconSize">
@@ -232,7 +233,7 @@ QWidget#widget {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <layout class="QHBoxLayout" name="headerRightLayout">
           <property name="spacing">
            <number>10</number>
           </property>
@@ -257,7 +258,7 @@ QWidget#widget {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../res/icons.qrc">
+             <iconset resource="../../../res/icons.qrc">
               <normaloff>:/icons/icons/minimize.png</normaloff>:/icons/icons/minimize.png</iconset>
             </property>
            </widget>
@@ -271,7 +272,7 @@ QWidget#widget {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../res/icons.qrc">
+             <iconset resource="../../../res/icons.qrc">
               <normaloff>:/icons/icons/maximize.png</normaloff>:/icons/icons/maximize.png</iconset>
             </property>
            </widget>
@@ -285,7 +286,7 @@ QWidget#widget {
              <string/>
             </property>
             <property name="icon">
-             <iconset resource="../../res/icons.qrc">
+             <iconset resource="../../../res/icons.qrc">
               <normaloff>:/icons/icons/close.png</normaloff>:/icons/icons/close.png</iconset>
             </property>
            </widget>
@@ -310,7 +311,7 @@ QWidget#widget {
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_6">
+      <layout class="QHBoxLayout" name="centerLayout">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -355,7 +356,7 @@ QWidget#widget {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QVBoxLayout" name="verticalLayout_4">
+         <layout class="QVBoxLayout" name="menuLayout">
           <property name="spacing">
            <number>6</number>
           </property>
@@ -407,7 +408,7 @@ QWidget#widget {
              <string>Settings</string>
             </property>
             <property name="icon">
-             <iconset resource="../../res/icons.qrc">
+             <iconset resource="../../../res/icons.qrc">
               <normaloff>:/icons/icons/settings.png</normaloff>:/icons/icons/settings.png</iconset>
             </property>
             <property name="iconSize">
@@ -447,7 +448,7 @@ QWidget#widget {
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_7">
+         <layout class="QHBoxLayout" name="contentLayout">
           <property name="spacing">
            <number>0</number>
           </property>
@@ -463,19 +464,6 @@ QWidget#widget {
           <property name="bottomMargin">
            <number>0</number>
           </property>
-          <item>
-           <widget class="QWidget" name="widget" native="true">
-            <property name="sizePolicy">
-             <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-              <horstretch>0</horstretch>
-              <verstretch>0</verstretch>
-             </sizepolicy>
-            </property>
-            <property name="locale">
-             <locale language="English" country="UnitedStates"/>
-            </property>
-           </widget>
-          </item>
          </layout>
         </widget>
        </item>
@@ -497,7 +485,7 @@ QWidget#widget {
       <property name="frameShadow">
        <enum>QFrame::Raised</enum>
       </property>
-      <layout class="QHBoxLayout" name="horizontalLayout_5" stretch="0,1">
+      <layout class="QHBoxLayout" name="footerLayout" stretch="0,1">
        <property name="spacing">
         <number>0</number>
        </property>
@@ -560,9 +548,7 @@ QWidget#widget {
   </widget>
  </widget>
  <resources>
-  <include location="../../res/icons.qrc"/>
-  <include location="../../res/icons.qrc"/>
-  <include location="../../res/icons.qrc"/>
+  <include location="../../../res/icons.qrc"/>
  </resources>
  <connections/>
  <buttongroups>

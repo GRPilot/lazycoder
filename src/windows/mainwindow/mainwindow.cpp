@@ -3,6 +3,7 @@
 #include "./ui_mainwindow.h"
 #include "appversion.h"
 #include "common.h"
+#include "settingsForm.h"
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{ parent, Qt::Window | Qt::CustomizeWindowHint }, ui(new Ui::MainWindow) {

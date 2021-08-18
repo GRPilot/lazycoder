@@ -32,4 +32,4 @@ private:
     // Current cursor position.
     QPointF mousePoint;
 };
-#endif // MAINWINDOW_H
+#endif  // MAINWINDOW_H
