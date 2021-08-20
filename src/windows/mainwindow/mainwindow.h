@@ -25,11 +25,14 @@ private slots:
     void onMaximizeButtonClicked();
     void onMinimizeButtonClicked();
     void onMenuToggled(bool checked);
+    void onSettingsButtonClicked();
 
 private:
+    // Changes the current main widget
+    //  by deleting previous and adding new to contentLayout.
+    void setMainWidget(QWidget *widget);
+    
     Ui::MainWindow *ui;
-
-    // Current cursor position.
-    QPointF mousePoint;
+    QPoint mousePoint; // Current cursor position.
 };
 #endif  // MAINWINDOW_H

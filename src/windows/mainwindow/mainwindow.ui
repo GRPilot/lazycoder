@@ -23,6 +23,7 @@
 
 /* Menu buttons style */
 QFrame#menu QPushButton {
+	/* border: none; */
 	padding: 5px;
 }
 /* Menu buttons style on hover */
@@ -385,7 +386,7 @@ QWidget#widget {
             </property>
            </spacer>
           </item>
-          <item>
+          <item alignment="Qt::AlignLeft">
            <widget class="QPushButton" name="settingsButton">
             <property name="sizePolicy">
              <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
