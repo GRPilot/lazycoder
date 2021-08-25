@@ -1,0 +1,13 @@
+prefix=G:\Libraries\zlib-1.2.11/bin/Debug
+exec_prefix=G:\Libraries\zlib-1.2.11/bin/Debug
+libdir=G:\Libraries\zlib-1.2.11/bin/Debug/lib
+sharedlibdir=G:\Libraries\zlib-1.2.11/bin/Debug/lib
+includedir=G:\Libraries\zlib-1.2.11/bin/Debug/include
+
+Name: zlib
+Description: zlib compression library
+Version: 1.2.11
+
+Requires:
+Libs: -L${libdir} -L${sharedlibdir} -lz
+Cflags: -I${includedir}

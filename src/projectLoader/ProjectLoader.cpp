@@ -11,6 +11,7 @@ Loader::Loader(const QString &repo, const QString &destination) {
 }
 
 bool Loader::run() {
+    return false;
 }
 
 //=========================== Unpacker ===========================//
@@ -20,6 +21,7 @@ Unpacker::Unpacker(const QString &targetPath, const QString &destination) {
 }
 
 bool Unpacker::run() {
+    return false;
 }
 
 //=========================== Cleaner ============================//
@@ -82,8 +84,8 @@ ExecutorPtr Manager::makeExtractAll(const QString &repoDir, const QString &path)
 ExecutorPtr Manager::makeCloneAndExtractAll(const QString &repo, const QString &path) const {
     auto tmpPath{ makeTempPath(path) };
     auto executor{ makeCloneRepo(repo, tmpPath) };
-    auto extracter{ makeExtractAll(tmpPath, path) };
-    *executor = *extracter;
+    auto extractor{ makeExtractAll(tmpPath, path) };
+    *executor = *extractor;
     executor->pushTask<Cleaner>(tmpPath);
     return executor;
 }
