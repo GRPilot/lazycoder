@@ -1,5 +1,4 @@
-#include <QSettings>
-#include <QStandardPaths>
+#include "settings.h"
 
 namespace setm {
 QSettings &Settings() {
