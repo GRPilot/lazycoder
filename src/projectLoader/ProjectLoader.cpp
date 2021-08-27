@@ -1,6 +1,7 @@
 #include "common.h"
 
 #include "ProjectLoader.h"
+#include "archive.h"
 
 namespace Project {
 
@@ -21,7 +22,8 @@ Unpacker::Unpacker(const QString &targetPath, const QString &destination) {
 }
 
 bool Unpacker::run() {
-    return false;
+    Utils::Archive arch{ mParams["target_path"].toString().toStdString() };
+    return arch.unpack(mParams["destination"].toString().toStdString());
 }
 
 //=========================== Cleaner ============================//
@@ -38,9 +40,9 @@ bool Cleaner::run() {
     return directory.removeRecursively();
 }
 
-//=========================== Executor ===========================//
+//=========================== TaskExecutor ===========================//
 
-Executor& Executor::operator=(const Executor &other) {
+TaskExecutor& TaskExecutor::operator=(const TaskExecutor &other) {
     if(this == &other) {
         return *this;
     }
@@ -48,7 +50,7 @@ Executor& Executor::operator=(const Executor &other) {
     return *this;
 }
 
-bool Executor::execute() {
+bool TaskExecutor::execute() {
     for(auto &task : mTasks) {
         if(task && !task->run()) {
             return false;
@@ -60,7 +62,7 @@ bool Executor::execute() {
 //=========================== Manager ============================//
 
 ExecutorPtr Manager::makeCloneRepo(const QString &repo, const QString &path) const {
-    auto executor{ std::make_shared<Executor>() };
+    auto executor{ std::make_shared<TaskExecutor>() };
     executor->pushTask<Loader>(repo, path);
     return executor;
 }
@@ -71,7 +73,7 @@ ExecutorPtr Manager::makeExtractAll(const QString &repoDir, const QString &path)
         repoDir, QStringList() << projectInfo,
         QDir::Files, QDirIterator::Subdirectories
     };
-    auto executor{ std::make_shared<Executor>() };
+    auto executor{ std::make_shared<TaskExecutor>() };
     while(it.hasNext()) {
         auto dir{ it.next() };
         dir.remove(projectInfo);

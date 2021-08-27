@@ -2,7 +2,7 @@
 
 namespace Project {
 
-class Chain {
+class Task {
 public:
     using Params = std::unordered_map<QString, QVariant>;
     virtual bool run() = 0;
@@ -11,7 +11,7 @@ protected:
     Params mParams;
 };
 
-class Loader : public Chain {
+class Loader : public Task {
 public:
     explicit Loader(const QString &repo, const QString &destination);
 
@@ -19,7 +19,7 @@ public:
 private:
 };
 
-class Unpacker : public Chain {
+class Unpacker : public Task {
 public:
     explicit Unpacker(const QString &targetPath, const QString &destination);
 
@@ -27,21 +27,21 @@ public:
 private:
 };
 
-class Cleaner : public Chain {
+class Cleaner : public Task {
 public:
     explicit Cleaner(const QString &directory);
 
     bool run() override;
 };
 
-class Executor {
+class TaskExecutor {
 public:
-    Executor &operator=(const Executor &other);
+    TaskExecutor &operator=(const TaskExecutor &other);
 
-    template<class ChainType, class ...Args>
+    template<class TaskType, class ...Args>
     bool pushTask(Args ...args) {
-        auto chain{ std::make_shared<ChainType>(args...) };
-        if(nullptr == chain || !dynamic_cast<Chain *>(chain.get())) {
+        auto chain{ std::make_shared<TaskType>(args...) };
+        if(nullptr == chain || !dynamic_cast<Task *>(chain.get())) {
             return false;
         }
         mTasks.push_back(chain);
@@ -50,10 +50,10 @@ public:
 
     bool execute();
 private:
-    using Tasks = std::vector<std::shared_ptr<Chain>>;
+    using Tasks = std::vector<std::shared_ptr<Task>>;
     Tasks mTasks;
 };
-using ExecutorPtr = std::shared_ptr<Executor>;
+using ExecutorPtr = std::shared_ptr<TaskExecutor>;
 
 class Manager {
 public:
