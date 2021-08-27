@@ -3,6 +3,7 @@
 
 #include <chrono>
 #include <future>
+#include <fstream>
 #include <sstream>
 #include <string>
 #include <thread>
@@ -16,5 +17,9 @@
 #include <QTranslator>
 #include <QDir>
 #include <QDirIterator>
+
+// External / Third-party
+#include <zip.h>
+#include <unzip.h>
 
 #endif  // COMMON_H
