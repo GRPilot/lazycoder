@@ -1,11 +1,23 @@
 #include "settings.h"
 
-namespace setm {
-QSettings &Settings() {
-    static QSettings settings(
-        QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation) + "/settings.ini",
-        QSettings::IniFormat);
+namespace Utils {
 
-    return settings;
+Settings::Settings() {
+    mSettingsMap.insert("app", {configLocation + "/appSettings.ini", QSettings::IniFormat});
+    mSettingsMap.insert("log", {configLocation + "/logSettings.ini", QSettings::IniFormat});
 }
-}  // namespace setm
+
+Settings &Settings::get() {
+    static Settings instance;
+    return instance;
+}
+
+Settings &getSettings() {
+    return Settings::get();
+}
+
+QSettings &Settings::operator[](const QString &type) {
+    return mSettingsMap[type];
+}
+
+}  // namespace Utils
