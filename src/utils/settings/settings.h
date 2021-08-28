@@ -1,27 +1,32 @@
 #pragma once
 
-#include <QMap>
-#include <QSettings>
-#include <QStandardPaths>
+/*
+    1. Restore default settings
+    2. 
+*/
+
+class QSettings;
 
 namespace Utils {
 
 class Settings {
-    // Default config location to write settings on current system.
-    QString configLocation{ QStandardPaths::writableLocation(QStandardPaths::AppConfigLocation) };
-
-public:
-    static Settings &get();
-    QSettings &operator[](const QString &type);
-
-private:
     Settings();
     Settings(const Settings &);
     Settings &operator=(Settings &);
 
-    QMap<QString, QSettings> mSettingsMap;
+    using SettingsMap = std::unordered_map<std::string_view, std::shared_ptr<QSettings>>;
+public:
+    static Settings &get();
+    QSettings *operator[](const QString &type);
+    QSettings *operator[](const std::string &type);
+
+private:
+    SettingsMap mSettingsMap;
+
+    SettingsMap makeSettingsMap() const;
+    QString root() const;
 };
 
-Settings &getSettings();
+QSettings *getSettings(const QString &type);
 
 }  // namespace Utils
