@@ -1,8 +1,10 @@
 #include "common.h"
+#include "init_logger.h"
 
 #include "mainwindow.h"
 
 int main(int argc, char *argv[]) {
+    Utils::initLogger(argv[0]);
     QApplication a(argc, argv);
 
     QTranslator translator;
