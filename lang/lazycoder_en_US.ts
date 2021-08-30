@@ -24,35 +24,35 @@
     <name>SettingsForm</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Settings</translation>
+        <translation>Settings</translation>
     </message>
     <message>
         <source>GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub</translation>
     </message>
     <message>
         <source>Sync templates list</source>
-        <translation type="unfinished"></translation>
+        <translation>Sync templates list</translation>
     </message>
     <message>
         <source>Edit repositories list</source>
-        <translation type="unfinished"></translation>
+        <translation>Edit repositories list</translation>
     </message>
     <message>
         <source>Client</source>
-        <translation type="unfinished"></translation>
+        <translation>Client</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Language</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Theme</translation>
     </message>
     <message>
         <source>Templates default directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Templates default directory</translation>
     </message>
 </context>
 </TS>

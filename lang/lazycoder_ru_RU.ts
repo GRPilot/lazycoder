@@ -24,35 +24,35 @@
     <name>SettingsForm</name>
     <message>
         <source>Settings</source>
-        <translation type="unfinished">Настройки</translation>
+        <translation>Настройки</translation>
     </message>
     <message>
         <source>GitHub</source>
-        <translation type="unfinished"></translation>
+        <translation>GitHub</translation>
     </message>
     <message>
         <source>Sync templates list</source>
-        <translation type="unfinished"></translation>
+        <translation>Синхронизировать список репозиториев</translation>
     </message>
     <message>
         <source>Edit repositories list</source>
-        <translation type="unfinished"></translation>
+        <translation>Редактировать список репозиториев</translation>
     </message>
     <message>
         <source>Client</source>
-        <translation type="unfinished"></translation>
+        <translation>Клиентские</translation>
     </message>
     <message>
         <source>Language</source>
-        <translation type="unfinished"></translation>
+        <translation>Язык</translation>
     </message>
     <message>
         <source>Theme</source>
-        <translation type="unfinished"></translation>
+        <translation>Тема</translation>
     </message>
     <message>
         <source>Templates default directory</source>
-        <translation type="unfinished"></translation>
+        <translation>Директория шаблонов по умолчанию</translation>
     </message>
 </context>
 </TS>
