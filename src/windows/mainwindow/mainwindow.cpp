@@ -68,10 +68,12 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event) {
 
 void MainWindow::setMainWidget(QWidget *widget) {
     // Deletes the previous widget in the layout.
-    if (!ui->contentLayout->isEmpty())
-        delete ui->contentLayout->takeAt(0);
+    if (!ui->contentLayout->isEmpty()) {
+        delete ui->contentLayout->takeAt(0)->widget();  // Deletes the widget.
+        delete ui->contentLayout->takeAt(0);            // Deletes the layout item.
+    }
 
-    // Adds the settings widget to the layout.
+    // Adds new widget to the layout.
     ui->contentLayout->addWidget(widget);
 }
 

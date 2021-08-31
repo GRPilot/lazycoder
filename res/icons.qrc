@@ -15,4 +15,8 @@
     <file>icons/maximize.png</file>
     <file>icons/minimize.png</file>
   </qresource>
+  
+  <qresource prefix="icons" lang="ru">
+    <file alias="icons/english.png">icons/russian.png</file>
+  </qresource>
 </RCC>

@@ -6,14 +6,17 @@
 namespace Ui { class SettingsForm; }
 
 class SettingsForm : public QWidget {
-  Q_OBJECT
+    Q_OBJECT
 
 public:
-  explicit SettingsForm(QWidget *parent = nullptr);
-  ~SettingsForm();
+    explicit SettingsForm(QWidget *parent = nullptr);
+    ~SettingsForm();
+
+private slots:
+    void onLangButtonClicked();
 
 private:
-  Ui::SettingsForm *ui;
+    Ui::SettingsForm *ui;
 };
 
-#endif // SETTINGSFORM_H
+#endif  // SETTINGSFORM_H
