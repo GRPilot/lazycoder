@@ -4,8 +4,8 @@
 #include "mainwindow.h"
 
 int main(int argc, char *argv[]) {
-    Utils::initLogger(argv[0]);
     QApplication a(argc, argv);
+    Utils::initLogger(a.applicationFilePath().toStdString());
 
     QTranslator translator;
     for (const QString &locale : QLocale::system().uiLanguages()) {

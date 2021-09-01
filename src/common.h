@@ -14,6 +14,7 @@
 #include <QTranslator>
 #include <QString>
 #include <QStringView>
+#include <QStringList>
 #include <QDir>
 
 // Third-party includes

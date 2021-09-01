@@ -12,7 +12,7 @@ namespace {
         return path.substr(0, sepPos);
     }
     void makeLogDir(const std::string &path) {
-        QDir{}.mkdir(QString::fromStdString(path));
+        QDir{}.mkpath(QString::fromStdString(path));
     }
     std::string makeDateTime() {
         char buffer[sizeof("DDMMYYYY_HHMMSS")]{};
