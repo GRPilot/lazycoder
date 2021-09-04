@@ -1,9 +1,9 @@
 #pragma once
-
-/*
-    1. Restore default settings
-    2. 
-*/
+#include <QApplication>
+#include <QFile>
+#include <QDir>
+#include <QCoreApplication>
+#include <QWidget>
 
 class QSettings;
 
@@ -20,11 +20,15 @@ public:
     QSettings *operator[](const QString &type);
     QSettings *operator[](const std::string &type);
 
+    QString getStyleSheet();
+    void restore();
+
 private:
     SettingsMap mSettingsMap;
 
     SettingsMap makeSettingsMap() const;
     QString root() const;
+    QString defaultStyleSheetString() const;
 };
 
 QSettings *getSettings(const QString &type);
