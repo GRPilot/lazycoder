@@ -1,9 +1,4 @@
 #pragma once
-#include <QApplication>
-#include <QFile>
-#include <QDir>
-#include <QCoreApplication>
-#include <QWidget>
 
 class QSettings;
 

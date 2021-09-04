@@ -1,21 +1,22 @@
 #ifndef COMMON_H
 #define COMMON_H
 
-#include <utility>
-#include <string_view>
-#include <unordered_map>
 #include <chrono>
 #include <future>
 #include <sstream>
 #include <string>
+#include <string_view>
 #include <thread>
+#include <unordered_map>
+#include <utility>
 
 // QT includes
 #include <QApplication>
+#include <QFile>
 #include <QLocale>
-#include <QTranslator>
+#include <QSettings>
 #include <QStandardPaths>
 #include <QStringView>
-#include <QSettings>
+#include <QTranslator>
 
 #endif  // COMMON_H
