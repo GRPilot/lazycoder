@@ -1,6 +1,7 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include <algorithm>
 #include <chrono>
 #include <future>
 #include <sstream>

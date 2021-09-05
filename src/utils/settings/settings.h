@@ -16,6 +16,7 @@ public:
     QSettings *operator[](const std::string &type);
 
     QString getStyleSheet();
+    QLocale getLocale();
     void restore();
 
 private:

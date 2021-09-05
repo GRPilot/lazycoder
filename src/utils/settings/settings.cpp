@@ -59,7 +59,7 @@ QString Settings::getStyleSheet() {
         qDebug() << "QTextStream status error!";
         return defaultStyleSheetString();
     }
-    
+
     return styleSheetString;
 }
 
@@ -67,7 +67,7 @@ void Settings::restore() {
     // Restores default app settings in .ini file.
     auto appSettings{ (*this)[QString("app")] };
     appSettings->setValue("theme", root() + "/themes/default.css");
-    appSettings->setValue("lang", "english");
+    appSettings->setValue("lang", QLocale());
     appSettings->setValue("default_dir", "some_dir");
     appSettings->setValue("repos", QStringList{"repo1", "repo2", "repo3"});
     appSettings->setValue("autosync", true);
@@ -122,6 +122,10 @@ QString Settings::defaultStyleSheetString() const {
            "QWidget#widget {\n"
            "    background-color: white;\n"
            "}";
+}
+
+QLocale Settings::getLocale() {
+    return {};
 }
 
 }  // namespace Utils

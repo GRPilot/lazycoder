@@ -27,11 +27,14 @@ private slots:
     void onMenuToggled(bool checked);
     void onSettingsButtonClicked();
 
+protected slots:
+    void changeEvent(QEvent *event) override;
+
 private:
     // Changes the current main widget
     //  by deleting previous and adding new to contentLayout.
     void setMainWidget(QWidget *widget);
-    
+
     Ui::MainWindow *ui;
     QPoint mousePoint; // Current cursor position.
 };

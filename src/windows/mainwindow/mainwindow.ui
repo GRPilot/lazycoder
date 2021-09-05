@@ -15,36 +15,7 @@
    <string>lazycoder</string>
   </property>
   <property name="styleSheet">
-   <string notr="true">/* Main app style */
-* {
-	background-color: rgb(244,244,244);
-	border: none;
-}
-
-/* Menu buttons style */
-QFrame#menu QPushButton {
-	/* border: none; */
-	padding: 5px;
-}
-/* Menu buttons style on hover */
-QFrame#menu QPushButton::hover {
-	border: 1px solid black;
-	border-radius: 5px;
-}
-/* Menu buttons style when checked */
-QFrame#menu QPushButton::checked {
-	background-color: rgb(220,220,220);
-	border-radius: 5px;
-}
-/* Window control buttons style  */
-QFrame#headerRight QPushButton {
-	/* Your styles here */
-}
-
-/* Content widget style (page placeholder) */
-QWidget#widget {
-	background-color: white;
-}</string>
+   <string notr="true"/>
   </property>
   <widget class="QWidget" name="mainWidget">
    <property name="contextMenuPolicy">
@@ -131,7 +102,6 @@ QWidget#widget {
             <property name="font">
              <font>
               <pointsize>12</pointsize>
-              <weight>75</weight>
               <bold>true</bold>
              </font>
             </property>

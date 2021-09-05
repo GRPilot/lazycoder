@@ -5,18 +5,18 @@
 #include "ui_settingsForm.h"
 
 SettingsForm::SettingsForm(QWidget *parent)
-    : QWidget(parent), ui(new Ui::SettingsForm) {
+    : QWidget{ parent }
+    , ui{ new Ui::SettingsForm }
+    , mTranslator{ } {
 
     ui->setupUi(this);
 
     connect(ui->langButton, &QPushButton::clicked, this, &SettingsForm::onLangButtonClicked);
 
-/*
-    auto app{ Utils::getSettings("app") };
-    if(nullptr == app) {
-        throw int(-1);
-    }
-*/
+    // auto app{ Utils::getSettings("app") };
+    // if(nullptr == app) {
+    //     throw int(-1);
+    // }
 }
 
 SettingsForm::~SettingsForm() {
@@ -24,23 +24,38 @@ SettingsForm::~SettingsForm() {
 }
 
 // TODO:
-// 1. Update ui of this form and main window form.
-// 2. Change icon based on language (QLocale()).
+// 1. Fix language being resetted when clicked on settings button again.
+// 2. Change icon based on language (QLocale() or mTranslator that installed).
+//  Иконка изменяется только после повторного нажатия на кнопку настроек.
+//  Да и сам язык сбрасывается при повторном нажатии на эту кнопку.
+//  Необходимо базовый язык доставать из Settings при старте программы
+//   и, видимо, делать QLocale::setDefault(settings->locale()) (спорно).
 void SettingsForm::onLangButtonClicked() {
-    QLocale ruLocale{ QLocale::Russian, QLocale::Russia };
-    QLocale enLocale{ QLocale::English, QLocale::UnitedStates };
+    // Removes previous translator.
+    qApp->removeTranslator(&mTranslator);
 
+    // Locale variables.
+    QLocale ruLocale{ QLocale::Russian, QLocale::CyrillicScript, QLocale::Russia };
+    QLocale enLocale{ QLocale::English, QLocale::LatinScript, QLocale::UnitedStates };
+
+    // Changes the default app locale depending on the current locale.
     if (QLocale() == ruLocale) {
         QLocale::setDefault(enLocale);
     } else {
         QLocale::setDefault(ruLocale);
     }
 
+    // Installs new translator to the app.
     QString translatorFilename = QString{ "lazycoder_%1.qm" }.arg(QLocale().name());
-    QTranslator translator;
-    if (translator.load(translatorFilename)) {
-        QCoreApplication::installTranslator(&translator);
-        ui->retranslateUi(this); // FIXME: Retranslates only settings form ui.
-        this->update(); // QUESTIONABLE.
+    if (mTranslator.load(translatorFilename)) {
+        qApp->installTranslator(&mTranslator);
+    }
+}
+
+void SettingsForm::changeEvent(QEvent *event) {
+    if (event->type() == QEvent::LanguageChange) {
+        ui->retranslateUi(this);
+    } else {
+        // QWidget::changeEvent(event); // Questionable.
     }
 }
