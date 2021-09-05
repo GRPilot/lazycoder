@@ -20,4 +20,39 @@
         <translation>Версия %1 | Правообладатели: seigtm x gollan | Из 2021 с любовью 🥰</translation>
     </message>
 </context>
+<context>
+    <name>SettingsForm</name>
+    <message>
+        <source>Settings</source>
+        <translation>Настройки</translation>
+    </message>
+    <message>
+        <source>GitHub</source>
+        <translation>GitHub</translation>
+    </message>
+    <message>
+        <source>Sync templates list</source>
+        <translation>Синхронизировать список репозиториев</translation>
+    </message>
+    <message>
+        <source>Edit repositories list</source>
+        <translation>Редактировать список репозиториев</translation>
+    </message>
+    <message>
+        <source>Client</source>
+        <translation>Клиентские</translation>
+    </message>
+    <message>
+        <source>Language</source>
+        <translation>Язык</translation>
+    </message>
+    <message>
+        <source>Theme</source>
+        <translation>Тема</translation>
+    </message>
+    <message>
+        <source>Templates default directory</source>
+        <translation>Директория шаблонов по умолчанию</translation>
+    </message>
+</context>
 </TS>
