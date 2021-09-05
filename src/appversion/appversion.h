@@ -8,7 +8,7 @@ struct AppInfo {
 
     struct Version {
         static const unsigned short major{ 0 };
-        static const unsigned short minor{ 5 };
+        static const unsigned short minor{ 6 };
         static const unsigned short patch{ 0 };
 
         static std::string str();
