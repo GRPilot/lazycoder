@@ -6,7 +6,9 @@
 #include <QPoint>
 
 QT_BEGIN_NAMESPACE
-namespace Ui { class MainWindow; }
+namespace Ui {
+class MainWindow;
+}
 QT_END_NAMESPACE
 
 class MainWindow : public QMainWindow {
@@ -36,6 +38,6 @@ private:
     void setMainWidget(QWidget *widget);
 
     Ui::MainWindow *ui;
-    QPoint mousePoint; // Current cursor position.
+    QPoint mousePoint;  // Current cursor position.
 };
 #endif  // MAINWINDOW_H

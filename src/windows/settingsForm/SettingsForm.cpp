@@ -7,8 +7,7 @@
 SettingsForm::SettingsForm(QWidget *parent)
     : QWidget{ parent }
     , ui{ new Ui::SettingsForm }
-    , mTranslator{ } {
-
+    , mTranslator{} {
     ui->setupUi(this);
 
     connect(ui->langButton, &QPushButton::clicked, this, &SettingsForm::onLangButtonClicked);
@@ -39,7 +38,7 @@ void SettingsForm::onLangButtonClicked() {
     QLocale enLocale{ QLocale::English, QLocale::LatinScript, QLocale::UnitedStates };
 
     // Changes the default app locale depending on the current locale.
-    if (QLocale() == ruLocale) {
+    if(QLocale() == ruLocale) {
         QLocale::setDefault(enLocale);
     } else {
         QLocale::setDefault(ruLocale);
@@ -47,15 +46,15 @@ void SettingsForm::onLangButtonClicked() {
 
     // Installs new translator to the app.
     QString translatorFilename = QString{ "lazycoder_%1.qm" }.arg(QLocale().name());
-    if (mTranslator.load(translatorFilename)) {
+    if(mTranslator.load(translatorFilename)) {
         qApp->installTranslator(&mTranslator);
     }
 }
 
 void SettingsForm::changeEvent(QEvent *event) {
-    if (event->type() == QEvent::LanguageChange) {
+    if(event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this);
     } else {
-        QWidget::changeEvent(event); // Questionable.
+        QWidget::changeEvent(event);  // Questionable.
     }
 }

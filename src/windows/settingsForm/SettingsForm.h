@@ -4,7 +4,9 @@
 #include <QWidget>
 #include <QTranslator>
 
-namespace Ui { class SettingsForm; }
+namespace Ui {
+class SettingsForm;
+}
 
 class SettingsForm : public QWidget {
     Q_OBJECT

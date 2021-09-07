@@ -7,7 +7,6 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{ parent, Qt::Window | Qt::CustomizeWindowHint }, ui(new Ui::MainWindow) {
-
     // Configures the UI of the app.
     ui->setupUi(this);
 
@@ -32,7 +31,7 @@ void MainWindow::onCloseButtonClicked() {
 }
 
 void MainWindow::onMaximizeButtonClicked() {
-    if (isMaximized()) {
+    if(isMaximized()) {
         showNormal();
     } else {
         showMaximized();
@@ -54,12 +53,12 @@ void MainWindow::mousePressEvent(QMouseEvent *event) {
 
 void MainWindow::mouseMoveEvent(QMouseEvent *event) {
     // Moves the window only if it's not maximized.
-    if (isMaximized()) {
+    if(isMaximized()) {
         return;
     }
 
     // If left mouse button clicked.
-    if (event->buttons() == Qt::LeftButton) {
+    if(event->buttons() == Qt::LeftButton) {
         // Moves window.
         move(pos() + event->globalPosition().toPoint() - mousePoint);
         mousePoint = event->globalPosition().toPoint();
@@ -68,7 +67,7 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event) {
 
 void MainWindow::setMainWidget(QWidget *widget) {
     // Deletes the previous widget in the layout.
-    if (!ui->contentLayout->isEmpty()) {
+    if(!ui->contentLayout->isEmpty()) {
         delete ui->contentLayout->takeAt(0)->widget();  // Deletes the widget.
         delete ui->contentLayout->takeAt(0);            // Deletes the layout item.
     }
@@ -78,10 +77,10 @@ void MainWindow::setMainWidget(QWidget *widget) {
 }
 
 void MainWindow::changeEvent(QEvent *event) {
-    if (event->type() == QEvent::LanguageChange) {
+    if(event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this);
     } else {
-        QWidget::changeEvent(event); // Questionable.
+        QWidget::changeEvent(event);  // Questionable.
     }
 }
 
