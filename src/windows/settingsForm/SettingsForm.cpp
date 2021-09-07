@@ -56,6 +56,6 @@ void SettingsForm::changeEvent(QEvent *event) {
     if (event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this);
     } else {
-        // QWidget::changeEvent(event); // Questionable.
+        QWidget::changeEvent(event); // Questionable.
     }
 }

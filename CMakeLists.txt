@@ -10,7 +10,7 @@ include(${scripts_path}/recurse_utils.cmake)
 include(${scripts_path}/add_exe_utils.cmake)
 
 #======================================= Application version ======================================#
-set_version(0.7.0)
+set_version(0.7.1)
 make_version_file("appversion")
 
 #====================================== CMake and Cpp options =====================================#

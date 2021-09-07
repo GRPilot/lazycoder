@@ -67,11 +67,6 @@ void MainWindow::mouseMoveEvent(QMouseEvent *event) {
 }
 
 void MainWindow::setMainWidget(QWidget *widget) {
-    // No need to change main widget if this is already current widget.
-    if (ui->contentLayout->widget() == widget) {
-        return;
-    }
-
     // Deletes the previous widget in the layout.
     if (!ui->contentLayout->isEmpty()) {
         delete ui->contentLayout->takeAt(0)->widget();  // Deletes the widget.
@@ -86,7 +81,7 @@ void MainWindow::changeEvent(QEvent *event) {
     if (event->type() == QEvent::LanguageChange) {
         ui->retranslateUi(this);
     } else {
-        // QWidget::changeEvent(event); // Questionable.
+        QWidget::changeEvent(event); // Questionable.
     }
 }
 
