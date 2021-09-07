@@ -8,9 +8,9 @@ int main(int argc, char *argv[]) {
     Utils::initLogger(a.applicationFilePath().toStdString());
 
     QTranslator translator;
-    for (const QString &locale : QLocale::system().uiLanguages()) {
+    for(const QString &locale : QLocale::system().uiLanguages()) {
         const QString baseName{ "lazycoder_" + QLocale(locale).name() };
-        if (translator.load(":/i18n/" + baseName)) {
+        if(translator.load(":/i18n/" + baseName)) {
             a.installTranslator(&translator);
             break;
         }

@@ -21,4 +21,4 @@
 #include <plog/Log.h>
 #include <plog/Appenders/ConsoleAppender.h>
 
-#endif // COMMON_H
+#endif  // COMMON_H

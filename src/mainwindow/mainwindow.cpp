@@ -6,7 +6,6 @@
 
 MainWindow::MainWindow(QWidget *parent)
     : QMainWindow{ parent, Qt::Window | Qt::CustomizeWindowHint }, ui(new Ui::MainWindow) {
-
     // Set UI up.
     ui->setupUi(this);
 
